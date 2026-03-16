@@ -1,0 +1,81 @@
+// Prisma 架构文件，
+// https://pris.ly/d/prisma-schema
+
+// 配置生成器
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+// 声明使用postgresql数据库
+datasource db {
+  provider = "postgresql"
+}
+
+// 配置 声音方式
+enum VoiceVariant {
+  SYSTEM
+  CUSTOM
+}
+
+// 内置声音模型
+enum VoiceCategory {
+  AUDIOBOOK
+  CONVERSATIONAL
+  CUSTOMER_SERVICE
+  GENERAL
+  NARRATIVE
+  CHARACTERS
+  MEDITATION
+  MOTIVATIONAL
+  PODCAST
+  ADVERTISING
+  VOICEOVER
+  CORPORATE
+}
+
+// 声音
+model Voice {
+  id String @id @default(cuid())
+
+  orgId String?
+
+  name        String
+  description String?
+  category    VoiceCategory @default(GENERAL)
+  language    String        @default("en-US")
+  variant     VoiceVariant
+  r2ObjectKey String?
+
+  generations Generation[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([variant])
+  @@index([orgId])
+}
+
+// 生成的音频
+model Generation {
+  id String @id @default(cuid())
+
+  orgId String
+
+  voiceId String?
+  voice   Voice?  @relation(fields: [voiceId], references: [id], onDelete: SetNull)
+
+  text              String
+  voiceName         String
+  r2ObjectKey       String?
+  temperature       Float
+  topP              Float
+  topK              Int
+  repetitionPenalty Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([orgId])
+  @@index([voiceId])
+}
