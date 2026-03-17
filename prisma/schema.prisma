@@ -36,8 +36,9 @@ enum VoiceCategory {
 
 // 声音
 model Voice {
-  id String @id @default(cuid())
-
+  id    String  @id @default(cuid())
+  
+  // 如果用内置声音模型，则组织id可选
   orgId String?
 
   name        String
