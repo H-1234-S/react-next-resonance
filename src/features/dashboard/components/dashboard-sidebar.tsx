@@ -126,13 +126,13 @@ export function DashboardSidebar() {
         },
         {
             title: "帮助与支持",
-            url: "mailto:business@codewithantonio.com",
+            url: "mailto:world1043914966@gmail.com",
             icon: Headphones,
         },
     ];
 
     return (
-        <Sidebar collapsible="icon">
+        <Sidebar collapsible="icon" >
             <SidebarHeader className="flex flex-col gap-4 pt-4">
                 <div
                     className="flex items-center gap-2 pl-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pl-0">

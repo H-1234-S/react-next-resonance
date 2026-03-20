@@ -13,7 +13,7 @@ export function DashboardHeader() {
         <div className="flex items-start justify-between">
             <div className="space-y-1">
                 <p className="text-sm text-muted-foreground">
-                    Nice to see you
+                    很高兴见到你
                 </p>
                 <h1 className="text-2xl lg:text-3xl font-semibold tracking-tight">
                     {isLoaded ? (user?.fullName ?? user?.firstName ?? "there") : "..."}
@@ -21,15 +21,15 @@ export function DashboardHeader() {
             </div>
             <div className="lg:flex items-center gap-3 hidden">
                 <Button variant="outline" size="sm" asChild>
-                    <Link href="mailto:business@codewithantonio.com">
+                    <Link href="mailto:world1043914966@gmail.com">
                         <ThumbsUp />
-                        <span className="hidden lg:block">Feedback</span>
+                        <span className="hidden lg:block">反馈</span>
                     </Link>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                    <Link href="mailto:business@codewithantonio.com">
+                    <Link href="mailto:world1043914966@gmail.com">
                         <Headphones />
-                        <span className="hidden lg:block">Need help?</span>
+                        <span className="hidden lg:block">需要帮助吗？</span>
                     </Link>
                 </Button>
             </div>

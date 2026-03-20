@@ -3,6 +3,7 @@ import "./globals.css";
 import { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
 import { ClerkProvider } from "@clerk/nextjs";
+import { zhCN } from "@clerk/localizations"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Resonance",
+    default: "欢迎来到 棱镜",
     template: "%s | Resonance"
   },
   description: "AI-powered text-to-speech and voice cloning platform",
@@ -28,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider localization={zhCN}>
       <html lang="en">
         <body
           className={`${inter.variable} ${geistMono.variable} antialiased`}
